@@ -9,7 +9,7 @@ public abstract class Pizza {
     abstract static class Builder<T extends Builder<T>> {
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
         public T addTopping(Topping topping) {
-            toppings.add(Objects.requireNonNullElse(topping));
+            toppings.add(Objects.requireNonNull(topping));
             return self();
         }
 
