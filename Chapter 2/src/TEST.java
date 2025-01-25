@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +8,15 @@ public class TEST {
     m.put(new PhoneNumber(707, 867, 5309), "JENNI" );
 
     m.get(new PhoneNumber(707, 867, 5309));
+
+    private static final Comparator<PhoneNumber> COMPARATOR =
+            Comparator.comparingInt((PhoneNumber pn) -> pn.areaCode)
+                    .thenComparingInt(pn -> pn.prefix)
+                    .thenComparingInt(pn -> on.lineNum);
+
+    public int compareTo(PhoneNumber pn){
+        return COMPARATOR.compare(this, pn);
+    }
 
     @Override
     public int hasCode() {
@@ -28,6 +38,15 @@ public class TEST {
 
     }
 
+    @Override
+    public PhoneNumber clone() {
+        try{
+            return (PhoneNumber) super.clone();
+        }catch (CloneNotSupportedException e){
+            throw new AssertionError();
+        }
+    }
+
     static String firstLineOfFile(String path, String defaultVal) throws IOException {
         try (
                 BufferedReader br = new BufferedReader(new FileReader(path));
@@ -38,6 +57,11 @@ public class TEST {
             return defaultVal;
         }
     }
+
+    static Comparator<Object> hashCodeOrder = Comparator.comparingInt(o -> o.hashCode());
 }
 
+public Yum(Yum yum){ ... };
+
+public static Yum newInstance(Yum yum){ ... };
 
