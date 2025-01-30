@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TEST {
     Map<PhoneNumber, String> m = new HashMap<>();
@@ -59,6 +57,12 @@ public class TEST {
     }
 
     static Comparator<Object> hashCodeOrder = Comparator.comparingInt(o -> o.hashCode());
+
+    private static final Thing[] PRIVATE_VALUES = {};
+    public static final Thing[] values() {
+        return PRIVATE_VALUES.clone();
+    }
+    public  static final List<Thing> VALUES = Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));
 }
 
 public Yum(Yum yum){ ... };
