@@ -1,6 +1,14 @@
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 public class Point {
+
+    private final Collection stamps;
+    private final Collection<Stamp> stamps;
+
+    static int numElementsInCommon(Set<?> s1, Set<?> s2) {}
+
     private final int x;
     private final int y;
 
