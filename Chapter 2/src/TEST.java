@@ -81,3 +81,6 @@ public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
     return result;
 }
 
+Stack<Number> numberStack = new Stack<>();
+Iterable<Integer> integers = ...;
+numberStack.pushAll(integers);
